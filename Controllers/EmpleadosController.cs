@@ -2,41 +2,69 @@ using backendGameHub.Models;
 using backendGameHub.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace backendGameHub.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class EmpleadosController : ControllerBase
+public class EmpleadosController : Controller
 {
-    private readonly DataContext _context;
+    private readonly IdentityContext _context;
+    private readonly UserManager<CustomIdentityUser> _userManager;
 
-    public EmpleadosController(DataContext context)
+    public EmpleadosController(IdentityContext context, UserManager<CustomIdentityUser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
 
-    public async Task<ActionResult<IEnumerable<EmpleadoDTO>>> Get()
+    //GET: api/empleados
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<CustomIdentityUserDTO>>> GetEmpleados()
     {
-        return await _context.Empleado
-            .Select(x => obtenerEmpleado(x))
-            .ToListAsync();
-    }
+        var usuarios = new List<CustomIdentityUserDTO>();
 
-    //GET: api/empleados/1
-    [HttpGet("{id}")]
-    public async Task<ActionResult<Empleado>> Get(int id)
-    {
-        var empleados = await _context.Empleado.FindAsync(id);
-
-        if (empleados == null)
+        foreach (var usuario in await _context.Users.AsNoTracking().ToListAsync())
         {
-            return NotFound();
+            usuarios.Add(new CustomIdentityUserDTO
+            {
+                Id = usuario.Id,
+                username = usuario.UserName,
+                nombre = usuario.nombre,
+                rol = GetUserRol(usuario)
+            });
         }
 
-        return empleados;
+        return usuarios;
     }
 
+    //GET: api/empleados/username
+    [HttpGet("{username}")]
+    public async Task<ActionResult<CustomIdentityUserDTO>> GetUsuario(string username)
+    {
+        var usuario = await _userManager.FindByEmailAsync(username);
+
+        if(usuario == null) return NotFound();
+
+        return new CustomIdentityUserDTO
+        {
+            Id = usuario.Id,
+            username = usuario.UserName,
+            nombre = usuario.nombre,
+            rol = GetUserRol(usuario)
+        };
+    
+    }
+
+    private string GetUserRol(CustomIdentityUser usuario)
+    {
+        var roles = _userManager.GetRolesAsync(usuario).Result;
+        return roles.First();
+    }
+
+
+    //POST: api/empleados
     private static EmpleadoDTO obtenerEmpleado(Empleado empleados) => 
     new EmpleadoDTO 
     {

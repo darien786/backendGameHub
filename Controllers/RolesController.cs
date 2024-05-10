@@ -10,9 +10,9 @@ namespace backendGameHub.Controllers;
 
 public class RolesController : ControllerBase
 {
-    private readonly DataContext _context;
+    private readonly IdentityContext _context;
 
-    public RolesController(DataContext context)
+    public RolesController(IdentityContext context)
     {
         _context = context;
     }

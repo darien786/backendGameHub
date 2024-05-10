@@ -8,9 +8,9 @@ namespace backendGameHub.Controllers;
 [Route("api/[controller]")]
 public class EstatusController : ControllerBase
 {
-    private readonly DataContext _context;
+    private readonly IdentityContext _context;
 
-    public EstatusController(DataContext context){
+    public EstatusController(IdentityContext context){
         _context = context;
     }
 
