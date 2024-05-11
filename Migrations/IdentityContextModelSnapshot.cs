@@ -22,6 +22,21 @@ namespace backendGameHub.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("CategoriaJuego", b =>
+                {
+                    b.Property<int>("categoriascategoriaId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("juegosjuegoId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("categoriascategoriaId", "juegosjuegoId");
+
+                    b.HasIndex("juegosjuegoId");
+
+                    b.ToTable("CategoriaJuego");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -50,13 +65,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a918ce6e-e458-42be-8db0-6965f067f402",
+                            Id = "47da9c06-f8eb-4cd4-952f-4455a8a9945f",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "64f82855-1514-4e1e-9912-80b7e8e2f754",
+                            Id = "16d567e5-d346-434a-a244-3258da9e60b1",
                             Name = "Recepcionista",
                             NormalizedName = "RECEPCIONISTA"
                         });
@@ -151,13 +166,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "2b27dc8e-170b-4572-9b3f-8cc5213fb381",
-                            RoleId = "a918ce6e-e458-42be-8db0-6965f067f402"
+                            UserId = "ab3282c5-946e-4a67-8479-9bc4e05de990",
+                            RoleId = "47da9c06-f8eb-4cd4-952f-4455a8a9945f"
                         },
                         new
                         {
-                            UserId = "5590f746-14af-4581-80cc-97d1a576658a",
-                            RoleId = "64f82855-1514-4e1e-9912-80b7e8e2f754"
+                            UserId = "15e9653f-2fb1-4fb7-bd02-de48af657500",
+                            RoleId = "16d567e5-d346-434a-a244-3258da9e60b1"
                         });
                 });
 
@@ -178,6 +193,23 @@ namespace backendGameHub.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("backendGameHub.Models.Categoria", b =>
+                {
+                    b.Property<int>("categoriaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("categoriaId"));
+
+                    b.Property<string>("nombre_categoria")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("categoriaId");
+
+                    b.ToTable("Categoria");
                 });
 
             modelBuilder.Entity("backendGameHub.Models.CustomIdentityUser", b =>
@@ -253,35 +285,35 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2b27dc8e-170b-4572-9b3f-8cc5213fb381",
+                            Id = "ab3282c5-946e-4a67-8479-9bc4e05de990",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "873620aa-48bc-4521-a686-84815451aa8c",
+                            ConcurrencyStamp = "af55a5d9-9914-41b7-8853-4052d319102e",
                             Email = "zkorpio12",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ZKORPIO12",
                             NormalizedUserName = "ZKORPIO12",
-                            PasswordHash = "AQAAAAIAAYagAAAAENb8VvwVnbMcHRavs70ZYCzCwcykCqS6XbxmSyLUsXvmXsA/pN1YOqG4yZu8kAp+9g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC8Sfx+6gbz5UUo+Qjy1z2InDj/Gt2nYRlDAzFiMP48f5qJQeBCO3goYU0R1tYeFiw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1d241c4e-0cc9-48bf-a009-41c2a3a8203a",
+                            SecurityStamp = "73a8adfc-386d-4bf6-bd77-e3237f172a98",
                             TwoFactorEnabled = false,
                             UserName = "zkorpio12",
-                            nombre = "Uriel Velasco",
+                            nombre = "Uriel",
                             protegido = true
                         },
                         new
                         {
-                            Id = "5590f746-14af-4581-80cc-97d1a576658a",
+                            Id = "15e9653f-2fb1-4fb7-bd02-de48af657500",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fb3534a5-9a24-4f43-9f6c-55d709c82540",
+                            ConcurrencyStamp = "0d7beace-6a4f-4078-8137-e2407727f764",
                             Email = "patito123",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "PATITO123",
                             NormalizedUserName = "PATITO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMf4JKn8yrg8Ja1baLlLXpF3sl/Y/V2nVyj3khs1Qt8aeNkdZBH4dYR/l9zFKtQ8OA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENutlkf2bm5Ajg/0IZalu+WyJbryJb3MbZhhvpAY6efgOZIJ861OlT59Tse6qKvEzQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "fcae38c1-fffa-4d7c-8b54-d24c8eb1c957",
+                            SecurityStamp = "b0ff036d-157d-4da6-9fae-d574d77c5785",
                             TwoFactorEnabled = false,
                             UserName = "patito123",
                             nombre = "Pato Gonzalez Perez",
@@ -309,7 +341,6 @@ namespace backendGameHub.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("fecha_baja")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("fecha_ingreso")
@@ -374,6 +405,48 @@ namespace backendGameHub.Migrations
                         });
                 });
 
+            modelBuilder.Entity("backendGameHub.Models.Juego", b =>
+                {
+                    b.Property<int>("juegoId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("juegoId"));
+
+                    b.Property<string>("categoria")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("descripcion")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("estatus")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int?>("estatusId")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("nombre_juego")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("plataforma")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("url_imagen")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("juegoId");
+
+                    b.HasIndex("estatusId");
+
+                    b.ToTable("Juego");
+                });
+
             modelBuilder.Entity("backendGameHub.Models.Persona", b =>
                 {
                     b.Property<int>("personaId")
@@ -430,6 +503,21 @@ namespace backendGameHub.Migrations
                             rolId = 2,
                             nombre_rol = "Recepcionista"
                         });
+                });
+
+            modelBuilder.Entity("CategoriaJuego", b =>
+                {
+                    b.HasOne("backendGameHub.Models.Categoria", null)
+                        .WithMany()
+                        .HasForeignKey("categoriascategoriaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("backendGameHub.Models.Juego", null)
+                        .WithMany()
+                        .HasForeignKey("juegosjuegoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -510,9 +598,18 @@ namespace backendGameHub.Migrations
                     b.Navigation("rol");
                 });
 
+            modelBuilder.Entity("backendGameHub.Models.Juego", b =>
+                {
+                    b.HasOne("backendGameHub.Models.Estatus", null)
+                        .WithMany("juegos")
+                        .HasForeignKey("estatusId");
+                });
+
             modelBuilder.Entity("backendGameHub.Models.Estatus", b =>
                 {
                     b.Navigation("empleados");
+
+                    b.Navigation("juegos");
                 });
 
             modelBuilder.Entity("backendGameHub.Models.Persona", b =>

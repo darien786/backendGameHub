@@ -56,6 +56,19 @@ namespace backendGameHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Categoria",
+                columns: table => new
+                {
+                    categoriaId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre_categoria = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categoria", x => x.categoriaId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Estatus",
                 columns: table => new
                 {
@@ -204,6 +217,30 @@ namespace backendGameHub.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Juego",
+                columns: table => new
+                {
+                    juegoId = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre_juego = table.Column<string>(type: "text", nullable: false),
+                    plataforma = table.Column<string>(type: "text", nullable: false),
+                    categoria = table.Column<string>(type: "text", nullable: false),
+                    descripcion = table.Column<string>(type: "text", nullable: false),
+                    estatus = table.Column<string>(type: "text", nullable: false),
+                    url_imagen = table.Column<string>(type: "text", nullable: false),
+                    estatusId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Juego", x => x.juegoId);
+                    table.ForeignKey(
+                        name: "FK_Juego_Estatus_estatusId",
+                        column: x => x.estatusId,
+                        principalTable: "Estatus",
+                        principalColumn: "estatusId");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Empleados",
                 columns: table => new
                 {
@@ -215,7 +252,7 @@ namespace backendGameHub.Migrations
                     username = table.Column<string>(type: "text", nullable: false),
                     password = table.Column<string>(type: "text", nullable: false),
                     fecha_ingreso = table.Column<string>(type: "text", nullable: false),
-                    fecha_baja = table.Column<string>(type: "text", nullable: false),
+                    fecha_baja = table.Column<string>(type: "text", nullable: true),
                     estatusId = table.Column<int>(type: "integer", nullable: false),
                     personaId = table.Column<int>(type: "integer", nullable: false),
                     rolId = table.Column<int>(type: "integer", nullable: false)
@@ -243,13 +280,37 @@ namespace backendGameHub.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "CategoriaJuego",
+                columns: table => new
+                {
+                    categoriascategoriaId = table.Column<int>(type: "integer", nullable: false),
+                    juegosjuegoId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CategoriaJuego", x => new { x.categoriascategoriaId, x.juegosjuegoId });
+                    table.ForeignKey(
+                        name: "FK_CategoriaJuego_Categoria_categoriascategoriaId",
+                        column: x => x.categoriascategoriaId,
+                        principalTable: "Categoria",
+                        principalColumn: "categoriaId",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CategoriaJuego_Juego_juegosjuegoId",
+                        column: x => x.juegosjuegoId,
+                        principalTable: "Juego",
+                        principalColumn: "juegoId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "64f82855-1514-4e1e-9912-80b7e8e2f754", null, "Recepcionista", "RECEPCIONISTA" },
-                    { "a918ce6e-e458-42be-8db0-6965f067f402", null, "Administrador", "ADMINISTRADOR" }
+                    { "16d567e5-d346-434a-a244-3258da9e60b1", null, "Recepcionista", "RECEPCIONISTA" },
+                    { "47da9c06-f8eb-4cd4-952f-4455a8a9945f", null, "Administrador", "ADMINISTRADOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -257,8 +318,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nombre", "protegido" },
                 values: new object[,]
                 {
-                    { "2b27dc8e-170b-4572-9b3f-8cc5213fb381", 0, "873620aa-48bc-4521-a686-84815451aa8c", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAENb8VvwVnbMcHRavs70ZYCzCwcykCqS6XbxmSyLUsXvmXsA/pN1YOqG4yZu8kAp+9g==", null, false, "1d241c4e-0cc9-48bf-a009-41c2a3a8203a", false, "zkorpio12", "Uriel Velasco", true },
-                    { "5590f746-14af-4581-80cc-97d1a576658a", 0, "fb3534a5-9a24-4f43-9f6c-55d709c82540", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAEMf4JKn8yrg8Ja1baLlLXpF3sl/Y/V2nVyj3khs1Qt8aeNkdZBH4dYR/l9zFKtQ8OA==", null, false, "fcae38c1-fffa-4d7c-8b54-d24c8eb1c957", false, "patito123", "Pato Gonzalez Perez", false }
+                    { "15e9653f-2fb1-4fb7-bd02-de48af657500", 0, "0d7beace-6a4f-4078-8137-e2407727f764", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAENutlkf2bm5Ajg/0IZalu+WyJbryJb3MbZhhvpAY6efgOZIJ861OlT59Tse6qKvEzQ==", null, false, "b0ff036d-157d-4da6-9fae-d574d77c5785", false, "patito123", "Pato Gonzalez Perez", false },
+                    { "ab3282c5-946e-4a67-8479-9bc4e05de990", 0, "af55a5d9-9914-41b7-8853-4052d319102e", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAEC8Sfx+6gbz5UUo+Qjy1z2InDj/Gt2nYRlDAzFiMP48f5qJQeBCO3goYU0R1tYeFiw==", null, false, "73a8adfc-386d-4bf6-bd77-e3237f172a98", false, "zkorpio12", "Uriel", true }
                 });
 
             migrationBuilder.InsertData(
@@ -284,8 +345,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "a918ce6e-e458-42be-8db0-6965f067f402", "2b27dc8e-170b-4572-9b3f-8cc5213fb381" },
-                    { "64f82855-1514-4e1e-9912-80b7e8e2f754", "5590f746-14af-4581-80cc-97d1a576658a" }
+                    { "16d567e5-d346-434a-a244-3258da9e60b1", "15e9653f-2fb1-4fb7-bd02-de48af657500" },
+                    { "47da9c06-f8eb-4cd4-952f-4455a8a9945f", "ab3282c5-946e-4a67-8479-9bc4e05de990" }
                 });
 
             migrationBuilder.CreateIndex(
@@ -326,6 +387,11 @@ namespace backendGameHub.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_CategoriaJuego_juegosjuegoId",
+                table: "CategoriaJuego",
+                column: "juegosjuegoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Empleados_estatusId",
                 table: "Empleados",
                 column: "estatusId");
@@ -339,6 +405,11 @@ namespace backendGameHub.Migrations
                 name: "IX_Empleados_rolId",
                 table: "Empleados",
                 column: "rolId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Juego_estatusId",
+                table: "Juego",
+                column: "estatusId");
         }
 
         /// <inheritdoc />
@@ -360,6 +431,9 @@ namespace backendGameHub.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "CategoriaJuego");
+
+            migrationBuilder.DropTable(
                 name: "Empleados");
 
             migrationBuilder.DropTable(
@@ -369,13 +443,19 @@ namespace backendGameHub.Migrations
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Estatus");
+                name: "Categoria");
+
+            migrationBuilder.DropTable(
+                name: "Juego");
 
             migrationBuilder.DropTable(
                 name: "Personas");
 
             migrationBuilder.DropTable(
                 name: "Rol");
+
+            migrationBuilder.DropTable(
+                name: "Estatus");
         }
     }
 }

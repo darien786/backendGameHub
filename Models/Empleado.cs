@@ -10,12 +10,11 @@ public class Empleado
     public required string username { get; set; }
     public required string password { get; set; }
     public required string fecha_ingreso { get; set; }
-    public string fecha_baja { get; set; }
+    public string? fecha_baja { get; set; }
     public int estatusId { get; set; }
-    public Estatus estatus { get; set; }
+    public Estatus? estatus { get; set; }
     public int personaId { get; set; }
-    public Persona persona { get; set; }
+    public Persona? persona { get; set; }
     public int rolId { get; set;}
-    public Rol rol { get; set;}
-
+    public Rol? rol { get; set;}
 }

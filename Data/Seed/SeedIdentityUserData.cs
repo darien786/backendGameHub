@@ -30,7 +30,7 @@ public static class SeedIdentityUserData
             UserName = "zkorpio12",
             Email = "zkorpio12",
             NormalizedEmail = "zkorpio12".ToUpper(),
-            nombre = "Uriel Velasco",
+            nombre = "Uriel",
             NormalizedUserName = "zkorpio12".ToUpper(),
             PasswordHash = new PasswordHasher<CustomIdentityUser>().HashPassword(null!, "123456"),
             protegido = true

@@ -8,6 +8,7 @@ public class Estatus
     public required string nombre_estatus { get; set; }
 
     [JsonIgnore]
-    public ICollection<Empleado> empleados { get; set; }
+    public ICollection<Empleado>? empleados { get; set; }
+    public ICollection<Juego>? juegos { get; set; }
 
 }
