@@ -1,5 +1,6 @@
 using backendGameHub.Data;
 using backendGameHub.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ namespace backendGameHub.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Administrador")]
 
 public class RolesController : ControllerBase
 {

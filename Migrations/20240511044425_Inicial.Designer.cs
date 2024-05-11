@@ -12,8 +12,8 @@ using backendGameHub.Data;
 namespace backendGameHub.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20240511032114_CreacionInicial")]
-    partial class CreacionInicial
+    [Migration("20240511044425_Inicial")]
+    partial class Inicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -53,13 +53,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8bf88538-4ec9-4239-8e18-cbc544e06947",
+                            Id = "a918ce6e-e458-42be-8db0-6965f067f402",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "03a9d3e3-1f8b-43e5-935d-01cb7c63fecb",
+                            Id = "64f82855-1514-4e1e-9912-80b7e8e2f754",
                             Name = "Recepcionista",
                             NormalizedName = "RECEPCIONISTA"
                         });
@@ -154,13 +154,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "bb65dab0-5edf-4086-8c68-7ffd81714e03",
-                            RoleId = "8bf88538-4ec9-4239-8e18-cbc544e06947"
+                            UserId = "2b27dc8e-170b-4572-9b3f-8cc5213fb381",
+                            RoleId = "a918ce6e-e458-42be-8db0-6965f067f402"
                         },
                         new
                         {
-                            UserId = "1397170a-a8e8-4009-82de-4d0d7e32260a",
-                            RoleId = "8bf88538-4ec9-4239-8e18-cbc544e06947"
+                            UserId = "5590f746-14af-4581-80cc-97d1a576658a",
+                            RoleId = "64f82855-1514-4e1e-9912-80b7e8e2f754"
                         });
                 });
 
@@ -256,15 +256,17 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bb65dab0-5edf-4086-8c68-7ffd81714e03",
+                            Id = "2b27dc8e-170b-4572-9b3f-8cc5213fb381",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "362fd395-4ad8-47bd-af13-9f394b0eddaa",
+                            ConcurrencyStamp = "873620aa-48bc-4521-a686-84815451aa8c",
+                            Email = "zkorpio12",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            NormalizedEmail = "ZKORPIO12",
                             NormalizedUserName = "ZKORPIO12",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFXr6bHY7RoO32nFH/VSmTvWSjnmr1xDV61HO2RlH2WLMu57HJOkGY/GZ+F4zrY0wQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENb8VvwVnbMcHRavs70ZYCzCwcykCqS6XbxmSyLUsXvmXsA/pN1YOqG4yZu8kAp+9g==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8ec91e79-cf27-4107-a8d5-07a15cb735fe",
+                            SecurityStamp = "1d241c4e-0cc9-48bf-a009-41c2a3a8203a",
                             TwoFactorEnabled = false,
                             UserName = "zkorpio12",
                             nombre = "Uriel Velasco",
@@ -272,15 +274,17 @@ namespace backendGameHub.Migrations
                         },
                         new
                         {
-                            Id = "1397170a-a8e8-4009-82de-4d0d7e32260a",
+                            Id = "5590f746-14af-4581-80cc-97d1a576658a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c6153ae0-b5c5-4751-926e-768efb30d7cc",
+                            ConcurrencyStamp = "fb3534a5-9a24-4f43-9f6c-55d709c82540",
+                            Email = "patito123",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
+                            NormalizedEmail = "PATITO123",
                             NormalizedUserName = "PATITO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAED539iJ0FLLhz+yjjjo9dRBl/gmgS2AYgPYVh59+A6K3mN+B3jVw6tO9i2W19d2iNw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMf4JKn8yrg8Ja1baLlLXpF3sl/Y/V2nVyj3khs1Qt8aeNkdZBH4dYR/l9zFKtQ8OA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2b8ee8f5-6578-4cca-9af4-9cc807f14767",
+                            SecurityStamp = "fcae38c1-fffa-4d7c-8b54-d24c8eb1c957",
                             TwoFactorEnabled = false,
                             UserName = "patito123",
                             nombre = "Pato Gonzalez Perez",

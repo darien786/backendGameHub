@@ -61,9 +61,8 @@ public static class SeedIdentityUserData
         modelBuilder.Entity<IdentityUserRole<string>>().HasData(
             new IdentityUserRole<string>
             {
-                RoleId = AdministradorRoleId,
+                RoleId = UsuarioRoleId,
                 UserId = UsuarioId
             });
     }
-
 }

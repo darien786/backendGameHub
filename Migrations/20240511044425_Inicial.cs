@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace backendGameHub.Migrations
 {
     /// <inheritdoc />
-    public partial class CreacionInicial : Migration
+    public partial class Inicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -248,8 +248,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "03a9d3e3-1f8b-43e5-935d-01cb7c63fecb", null, "Recepcionista", "RECEPCIONISTA" },
-                    { "8bf88538-4ec9-4239-8e18-cbc544e06947", null, "Administrador", "ADMINISTRADOR" }
+                    { "64f82855-1514-4e1e-9912-80b7e8e2f754", null, "Recepcionista", "RECEPCIONISTA" },
+                    { "a918ce6e-e458-42be-8db0-6965f067f402", null, "Administrador", "ADMINISTRADOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -257,8 +257,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nombre", "protegido" },
                 values: new object[,]
                 {
-                    { "1397170a-a8e8-4009-82de-4d0d7e32260a", 0, "c6153ae0-b5c5-4751-926e-768efb30d7cc", null, false, false, null, null, "PATITO123", "AQAAAAIAAYagAAAAED539iJ0FLLhz+yjjjo9dRBl/gmgS2AYgPYVh59+A6K3mN+B3jVw6tO9i2W19d2iNw==", null, false, "2b8ee8f5-6578-4cca-9af4-9cc807f14767", false, "patito123", "Pato Gonzalez Perez", false },
-                    { "bb65dab0-5edf-4086-8c68-7ffd81714e03", 0, "362fd395-4ad8-47bd-af13-9f394b0eddaa", null, false, false, null, null, "ZKORPIO12", "AQAAAAIAAYagAAAAEFXr6bHY7RoO32nFH/VSmTvWSjnmr1xDV61HO2RlH2WLMu57HJOkGY/GZ+F4zrY0wQ==", null, false, "8ec91e79-cf27-4107-a8d5-07a15cb735fe", false, "zkorpio12", "Uriel Velasco", true }
+                    { "2b27dc8e-170b-4572-9b3f-8cc5213fb381", 0, "873620aa-48bc-4521-a686-84815451aa8c", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAENb8VvwVnbMcHRavs70ZYCzCwcykCqS6XbxmSyLUsXvmXsA/pN1YOqG4yZu8kAp+9g==", null, false, "1d241c4e-0cc9-48bf-a009-41c2a3a8203a", false, "zkorpio12", "Uriel Velasco", true },
+                    { "5590f746-14af-4581-80cc-97d1a576658a", 0, "fb3534a5-9a24-4f43-9f6c-55d709c82540", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAEMf4JKn8yrg8Ja1baLlLXpF3sl/Y/V2nVyj3khs1Qt8aeNkdZBH4dYR/l9zFKtQ8OA==", null, false, "fcae38c1-fffa-4d7c-8b54-d24c8eb1c957", false, "patito123", "Pato Gonzalez Perez", false }
                 });
 
             migrationBuilder.InsertData(
@@ -284,8 +284,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "8bf88538-4ec9-4239-8e18-cbc544e06947", "1397170a-a8e8-4009-82de-4d0d7e32260a" },
-                    { "8bf88538-4ec9-4239-8e18-cbc544e06947", "bb65dab0-5edf-4086-8c68-7ffd81714e03" }
+                    { "a918ce6e-e458-42be-8db0-6965f067f402", "2b27dc8e-170b-4572-9b3f-8cc5213fb381" },
+                    { "64f82855-1514-4e1e-9912-80b7e8e2f754", "5590f746-14af-4581-80cc-97d1a576658a" }
                 });
 
             migrationBuilder.CreateIndex(

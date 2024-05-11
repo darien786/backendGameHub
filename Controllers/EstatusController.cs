@@ -2,10 +2,13 @@ using backendGameHub.Models;
 using backendGameHub.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace backendGameHub.Controllers;
 [ApiController]
 [Route("api/[controller]")]
+[Authorize(Roles = "Administrador")]
+
 public class EstatusController : ControllerBase
 {
     private readonly IdentityContext _context;
