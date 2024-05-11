@@ -328,8 +328,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "6a2ca92e-488f-452e-babb-b24bde58eb76", null, "Recepcionista", "RECEPCIONISTA" },
-                    { "e2d6e5d3-f83c-4b83-b045-ad0a4a1d23e3", null, "Administrador", "ADMINISTRADOR" }
+                    { "5005675a-a217-4366-a0bf-c8e4bd1bcfb9", null, "Administrador", "ADMINISTRADOR" },
+                    { "d39a8194-9da8-4451-a3e0-208b1d90dbb0", null, "Recepcionista", "RECEPCIONISTA" }
                 });
 
             migrationBuilder.InsertData(
@@ -337,8 +337,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nombre", "protegido" },
                 values: new object[,]
                 {
-                    { "fec85b24-29b6-4e4f-a87f-140dbac35d42", 0, "60973d37-9525-4894-896a-f54dd57397ac", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAEKlwHyvbTOHA6sdecVQ2DD0UC7UTG48E8vCgYCAB9jaDlJClMK9GQoZCtzxlOIJHdQ==", null, false, "fbcc3871-f8b8-471a-b819-be2733ee8cdd", false, "zkorpio12", "Uriel", true },
-                    { "ff558948-71c1-45cc-bd97-773d04b73e00", 0, "2384560a-e0f7-48bf-8f6b-71f82895abc6", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAEGpRaRsMxizTmMxN7ei0WpBnQNyuozzac3E5Mnqy+F99T3O7pqZEIa9RsbkN2xkkVQ==", null, false, "3ffae71c-170b-4c84-8b87-a8ad0f5e7d51", false, "patito123", "Pato Gonzalez Perez", false }
+                    { "1a884f5f-1b7b-4afd-8c57-4b1b1c72a2e4", 0, "c7c2ce96-8ad0-40d2-bea3-58d1621e8ba2", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAEBcVOkAELgJdoA1tIsv5Y1vidSobAfHlPYszD4tPNId6J0HqVmCoPQZR40SXle01/Q==", null, false, "40a330e1-b569-4c67-89b1-175152d4a5a2", false, "patito123", "Pato Gonzalez Perez", false },
+                    { "b2d84eed-f3c9-46bc-b09d-436ae2f11b96", 0, "c80cb5ad-a4bb-48ba-a783-05aa37b9f184", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAED5qFVeCJNsGUZOMzR4KPytUYy3Wo0dwVevcVCxow0YIRu5x3XouBUdReV16th3IwA==", null, false, "52e7f4b1-25b1-491a-8802-0cf6487775e5", false, "zkorpio12", "Uriel", true }
                 });
 
             migrationBuilder.InsertData(
@@ -364,8 +364,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "e2d6e5d3-f83c-4b83-b045-ad0a4a1d23e3", "fec85b24-29b6-4e4f-a87f-140dbac35d42" },
-                    { "6a2ca92e-488f-452e-babb-b24bde58eb76", "ff558948-71c1-45cc-bd97-773d04b73e00" }
+                    { "d39a8194-9da8-4451-a3e0-208b1d90dbb0", "1a884f5f-1b7b-4afd-8c57-4b1b1c72a2e4" },
+                    { "5005675a-a217-4366-a0bf-c8e4bd1bcfb9", "b2d84eed-f3c9-46bc-b09d-436ae2f11b96" }
                 });
 
             migrationBuilder.CreateIndex(

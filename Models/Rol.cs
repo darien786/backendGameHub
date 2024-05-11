@@ -8,5 +8,5 @@ public class Rol
     public required string nombre_rol { get; set; }
 
     [JsonIgnore]
-    public ICollection<Empleado> empleados { get; set; }
+    public ICollection<Empleado>? empleados { get; set; }
 }

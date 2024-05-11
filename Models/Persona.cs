@@ -12,5 +12,5 @@ public required string telefono { get; set; }
 
 
 [JsonIgnore]
-public ICollection<Empleado> empleados { get; set; }
+public ICollection<Empleado>? empleados { get; set; }
 }
