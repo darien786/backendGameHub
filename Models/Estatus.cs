@@ -10,5 +10,6 @@ public class Estatus
     [JsonIgnore]
     public ICollection<Empleado>? empleados { get; set; }
     public ICollection<Juego>? juegos { get; set; }
+    public ICollection<Equipo>? equipos { get; set; }
 
 }
