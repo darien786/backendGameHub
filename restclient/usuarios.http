@@ -1,0 +1,17 @@
+
+
+GET http://localhost:3000/api/empleados
+
+###
+
+GET http://localhost:3000/api/roles
+
+###
+
+POST http://localhost:3000/api/auth
+Content-Type: application/json
+
+{
+    "username":"zkorpio12",
+    "password":"123456"
+}

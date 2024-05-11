@@ -104,3 +104,11 @@ C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.Entit
 C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
 C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
 C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\codigo\tw\backendGameHub\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

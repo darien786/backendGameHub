@@ -50,13 +50,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "3a6d3f8b-e45c-4b8a-8294-7448b08b87e5",
+                            Id = "8bf88538-4ec9-4239-8e18-cbc544e06947",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "03df53c0-a96d-4674-b6c8-9cec1777cadd",
+                            Id = "03a9d3e3-1f8b-43e5-935d-01cb7c63fecb",
                             Name = "Recepcionista",
                             NormalizedName = "RECEPCIONISTA"
                         });
@@ -151,13 +151,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "8115f1d3-1b0b-4d94-8165-c836f1894e2d",
-                            RoleId = "3a6d3f8b-e45c-4b8a-8294-7448b08b87e5"
+                            UserId = "bb65dab0-5edf-4086-8c68-7ffd81714e03",
+                            RoleId = "8bf88538-4ec9-4239-8e18-cbc544e06947"
                         },
                         new
                         {
-                            UserId = "f656293e-799c-4830-bb2d-e318577b1798",
-                            RoleId = "3a6d3f8b-e45c-4b8a-8294-7448b08b87e5"
+                            UserId = "1397170a-a8e8-4009-82de-4d0d7e32260a",
+                            RoleId = "8bf88538-4ec9-4239-8e18-cbc544e06947"
                         });
                 });
 
@@ -253,15 +253,15 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "8115f1d3-1b0b-4d94-8165-c836f1894e2d",
+                            Id = "bb65dab0-5edf-4086-8c68-7ffd81714e03",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5b19bc2-3574-4776-b24b-718f1553d98b",
+                            ConcurrencyStamp = "362fd395-4ad8-47bd-af13-9f394b0eddaa",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "ZKORPIO12",
-                            PasswordHash = "AQAAAAIAAYagAAAAEK3ThAM6IdcPV4bGy2doCmWJl2GA86Kd4JxeTTcaEbYwAGVqsIOiW/+WTjEi53VfUg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFXr6bHY7RoO32nFH/VSmTvWSjnmr1xDV61HO2RlH2WLMu57HJOkGY/GZ+F4zrY0wQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "49403493-8450-46ca-8691-534e142577d6",
+                            SecurityStamp = "8ec91e79-cf27-4107-a8d5-07a15cb735fe",
                             TwoFactorEnabled = false,
                             UserName = "zkorpio12",
                             nombre = "Uriel Velasco",
@@ -269,15 +269,15 @@ namespace backendGameHub.Migrations
                         },
                         new
                         {
-                            Id = "f656293e-799c-4830-bb2d-e318577b1798",
+                            Id = "1397170a-a8e8-4009-82de-4d0d7e32260a",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b717c46d-ac6f-447a-aab4-37a927f3cdd4",
+                            ConcurrencyStamp = "c6153ae0-b5c5-4751-926e-768efb30d7cc",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedUserName = "PATITO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOeeeOcgTbcTtccIF/J1aFjMToHYoM8Fw1/R7msqoCha9d7zSPk8LUt1vPDSbUKgMw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAED539iJ0FLLhz+yjjjo9dRBl/gmgS2AYgPYVh59+A6K3mN+B3jVw6tO9i2W19d2iNw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "55201c72-aa88-4064-9606-7a26de36697b",
+                            SecurityStamp = "2b8ee8f5-6578-4cca-9af4-9cc807f14767",
                             TwoFactorEnabled = false,
                             UserName = "patito123",
                             nombre = "Pato Gonzalez Perez",

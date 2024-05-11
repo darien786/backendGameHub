@@ -28,6 +28,8 @@ public static class SeedIdentityUserData
         {
             Id = UsuarioId,
             UserName = "zkorpio12",
+            Email = "zkorpio12",
+            NormalizedEmail = "zkorpio12".ToUpper(),
             nombre = "Uriel Velasco",
             NormalizedUserName = "zkorpio12".ToUpper(),
             PasswordHash = new PasswordHasher<CustomIdentityUser>().HashPassword(null!, "123456"),
@@ -48,6 +50,8 @@ public static class SeedIdentityUserData
             {
                 Id = UsuarioId,
                 UserName = "patito123",
+                Email = "patito123",
+                NormalizedEmail = "patito123".ToUpper(),
                 nombre = "Pato Gonzalez Perez",
                 NormalizedUserName = "patito123".ToUpper(),
                 PasswordHash = new PasswordHasher<CustomIdentityUser>().HashPassword(null!, "123456")
