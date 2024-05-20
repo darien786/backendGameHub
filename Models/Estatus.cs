@@ -5,11 +5,7 @@ namespace backendGameHub.Models;
 public class Estatus
 {
     public int estatusId { get; set; }
-    public required string nombre_estatus { get; set; }
-
+    public string nombre_estatus { get; set; } = "Sin nombre";
     [JsonIgnore]
-    public ICollection<Empleado>? empleados { get; set; }
     public ICollection<Juego>? juegos { get; set; }
-    public ICollection<Equipo>? equipos { get; set; }
-
 }

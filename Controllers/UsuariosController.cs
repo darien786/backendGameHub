@@ -24,7 +24,7 @@ public class UsuariosController : Controller
 
     //GET: api/empleados
     //[HttpGet]
-    public async Task<ActionResult<IEnumerable<CustomIdentityUserDTO>>> Get()
+    public async Task<ActionResult<IEnumerable<CustomIdentityUserDTO>>> obtenerUsuariosGET()
     {
         var usuarios = new List<CustomIdentityUserDTO>();
 
@@ -35,7 +35,7 @@ public class UsuariosController : Controller
                 Id = usuario.Id,
                 username = usuario.UserName!,
                 nombre = usuario.nombre,
-                rol = GetUserRol(usuario)
+                rol = obtenerRolUsuario(usuario)
             });
         }
 
@@ -44,7 +44,7 @@ public class UsuariosController : Controller
 
     //GET: api/empleados/username
     [HttpGet("{username}")]
-    public async Task<ActionResult<CustomIdentityUserDTO>> GetUsuario(string username)
+    public async Task<ActionResult<CustomIdentityUserDTO>> obtenerUsuarioPorUsername(string username)
     {
         var usuario = await _userManager.FindByEmailAsync(username);
 
@@ -55,12 +55,12 @@ public class UsuariosController : Controller
             Id = usuario.Id,
             username = usuario.UserName!,
             nombre = usuario.nombre,
-            rol = GetUserRol(usuario)
+            rol = obtenerRolUsuario(usuario)
         };
     
     }
 
-    private string GetUserRol(CustomIdentityUser usuario)
+    private string obtenerRolUsuario(CustomIdentityUser usuario)
     {
         var roles = _userManager.GetRolesAsync(usuario).Result;
         return roles.First();

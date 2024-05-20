@@ -5,11 +5,12 @@ namespace backendGameHub.Models;
 public class Juego{
 
     public int juegoId { get; set; }
-    public required string nombre_juego { get; set; }
-    public required string plataforma { get; set; }
-    public required string descripcion { get; set; }
-    public required string url_imagen { get; set; }
+    public string nombre_juego { get; set; } = "Sin nombre";
+    public string plataforma { get; set; } = "N/A";
+    public string descripcion { get; set; } = "Sin descripcion";
+    public string url_imagen { get; set; } = "N/A";
+    public int? estatusId { get; set; }
+    public Estatus? estatus { get; set; }
 
-    [JsonIgnore]
     public ICollection<Categoria>? categorias { get; set; }
 }

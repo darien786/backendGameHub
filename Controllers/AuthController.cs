@@ -12,6 +12,7 @@ namespace backendGameHub.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+
 public class AuthController : Controller
 {
     private readonly IdentityContext _context;
@@ -25,7 +26,7 @@ public class AuthController : Controller
     }
 
     [HttpPost]
-    public async Task<ActionResult> PostAsync([FromBody] LoginDTO loginDTO)
+    public async Task<ActionResult> inicioSesion([FromBody] LoginDTO loginDTO)
     {
         var usuario = await _userManager.FindByNameAsync(loginDTO.username);
 

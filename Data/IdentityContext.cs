@@ -13,14 +13,15 @@ public class IdentityContext : IdentityDbContext<CustomIdentityUser>
     }
 
     public DbSet<Estatus> Estatus { get; set; }
-    public DbSet<Rol> Rol { get; set; }
-    public DbSet<Empleado> Empleados { get; set; }
-    public DbSet<Persona> Personas { get; set; }
-
+    public DbSet<Disponibilidad> Disponibilidad { get; set; }
+    public DbSet<Categoria> Categorias { get; set; }
+    public DbSet<Equipo> Equipos { get; set; }
+    public DbSet<Juego> Juegos { get; set; }
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfiguration(new SeedEstatus());
-        builder.ApplyConfiguration(new SeedRoles());
+        builder.ApplyConfiguration(new SeedDisponibilidad());
+        builder.ApplyConfiguration(new SeedEquipo());
         builder.SeedUserIdentityData();
 
         base.OnModelCreating(builder);
