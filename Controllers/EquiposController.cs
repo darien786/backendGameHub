@@ -37,3 +37,5 @@ public class EquiposController : Controller{
     }
 }
 
+
+
