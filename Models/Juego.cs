@@ -11,6 +11,5 @@ public class Juego{
     public string url_imagen { get; set; } = "N/A";
     public int? estatusId { get; set; }
     public Estatus? estatus { get; set; }
-
     public ICollection<Categoria>? categorias { get; set; }
 }

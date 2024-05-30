@@ -60,7 +60,7 @@ builder.Services.AddCors(options =>
     options.AddDefaultPolicy(
         policy =>
         {
-            policy.WithOrigins("http://localhost:5173", "http://localhost:8080")
+            policy.WithOrigins("http://localhost:5173", "http://localhost:3000")
             .AllowAnyHeader()
             .WithMethods("GET", "POST", "PUT", "DELETE");
         }
@@ -80,8 +80,6 @@ app.UseHttpsRedirection();
 
 //utiliza rutas para los endpoints de los controladores
 app.UseRouting();
-
-
 //Utiliza Autenticación
 app.UseAuthentication();
 
