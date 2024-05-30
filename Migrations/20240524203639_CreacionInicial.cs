@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace backendGameHub.Migrations
 {
     /// <inheritdoc />
-    public partial class Inicial : Migration
+    public partial class CreacionInicial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -207,6 +207,7 @@ namespace backendGameHub.Migrations
                     equipoId = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     nombre = table.Column<string>(type: "text", nullable: false),
+                    url_imagen = table.Column<string>(type: "text", nullable: false),
                     modelo = table.Column<string>(type: "text", nullable: false),
                     marca = table.Column<string>(type: "text", nullable: false),
                     disponibilidadId = table.Column<int>(type: "integer", nullable: true)
@@ -272,8 +273,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "9c3ae73c-7445-433f-a722-42a7ed13fdc4", null, "Administrador", "ADMINISTRADOR" },
-                    { "ff98d73b-0cff-46d6-b8bd-6d770da0d704", null, "Recepcionista", "RECEPCIONISTA" }
+                    { "4a3f9656-b7a3-4d56-bbf3-910c26e0eb92", null, "Recepcionista", "RECEPCIONISTA" },
+                    { "ef404a9f-8efb-4de9-9b4f-05705d604bac", null, "Administrador", "ADMINISTRADOR" }
                 });
 
             migrationBuilder.InsertData(
@@ -281,8 +282,8 @@ namespace backendGameHub.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "nombre", "protegido" },
                 values: new object[,]
                 {
-                    { "011ed245-bcbc-4cd3-91ed-18a21ed3832c", 0, "f2e3073d-9a31-4065-a4a6-32104ec8339a", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAEKi8TKSJZVReL4ANoLlR2nDi8Bv6415eBSnNeeTtWS51aRqTOxZt/qRal75Ntra1vg==", null, false, "204fef85-525d-4797-af62-d8001cafb17c", false, "patito123", "Pato Gonzalez Perez", false },
-                    { "05a26810-c9fe-47be-808b-a8d2091797d5", 0, "2fbf290b-188f-4271-a10c-58ff0a1de896", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAEARaM5uDXyA4blo86jkXvp42UkaSa+e5ZfxzEYJKmuNweZK24lKfo0VMeIvQD+3WOA==", null, false, "ce190139-ef3d-4177-b0e6-47f0fb572361", false, "zkorpio12", "Uriel", true }
+                    { "4ecf76a1-704f-46f5-9d58-2ba8ad601845", 0, "aa72f48f-7179-4f05-a99c-e047533a0cf1", "zkorpio12", false, false, null, "ZKORPIO12", "ZKORPIO12", "AQAAAAIAAYagAAAAEP3I1AvELGNfAlZwQuZCA978uZQnEkNgIwvV5wzyXMdRu4ptDbHjtxtfllF0o+e7Uw==", null, false, "c559b1b0-d536-4eab-87db-6cd68b3d0447", false, "zkorpio12", "Uriel", true },
+                    { "df98ea20-9e1f-4bf7-9501-74cd4126a0bc", 0, "142aa57e-e6b0-437f-bba3-1b661028d2e3", "patito123", false, false, null, "PATITO123", "PATITO123", "AQAAAAIAAYagAAAAEGZFpXXMvfJj0KwRGsb7Cf9Scl0aUALo6ZLskZBorLc1iBAyxxXyFehOjS3lxluWNw==", null, false, "cb8fc689-9e5d-46b4-bb5e-ff6754f5c13e", false, "patito123", "Pato Gonzalez Perez", false }
                 });
 
             migrationBuilder.InsertData(
@@ -309,25 +310,25 @@ namespace backendGameHub.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "ff98d73b-0cff-46d6-b8bd-6d770da0d704", "011ed245-bcbc-4cd3-91ed-18a21ed3832c" },
-                    { "9c3ae73c-7445-433f-a722-42a7ed13fdc4", "05a26810-c9fe-47be-808b-a8d2091797d5" }
+                    { "ef404a9f-8efb-4de9-9b4f-05705d604bac", "4ecf76a1-704f-46f5-9d58-2ba8ad601845" },
+                    { "4a3f9656-b7a3-4d56-bbf3-910c26e0eb92", "df98ea20-9e1f-4bf7-9501-74cd4126a0bc" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Equipos",
-                columns: new[] { "equipoId", "disponibilidadId", "marca", "modelo", "nombre" },
+                columns: new[] { "equipoId", "disponibilidadId", "marca", "modelo", "nombre", "url_imagen" },
                 values: new object[,]
                 {
-                    { 1, 1, "DELL", "50i", "PC Gamer Delios" },
-                    { 2, 1, "DELL", "R11", "Alienware Aurora" },
-                    { 3, 1, "HP", "30L", "HP Omen" },
-                    { 4, 1, "ASUS", "G15", "ASUS ROG Strix" },
-                    { 5, 3, "MSI", "Arctic", "MSI Trident 3" },
-                    { 6, 1, "Microsoft", "1TB", "Xbox Series S" },
-                    { 7, 1, "Microsoft", "1TB", "Xbox Series S" },
-                    { 8, 1, "Microsoft", "1TB", "Xbox Series S" },
-                    { 9, 1, "Microsoft", "1TB", "Xbox Series S" },
-                    { 10, 3, "Microsoft", "1TB", "Xbox Series S" }
+                    { 1, 1, "DELL", "50i", "PC Gamer Delios", "https://th.bing.com/th/id/OIP.pqgvcdzTUqEg1Dn4TB6p9QHaHa?rs=1&pid=ImgDetMain" },
+                    { 2, 1, "DELL", "R11", "Alienware Aurora", "https://th.bing.com/th/id/OIP.ybUvOyf2tQLPRjKpvZqhPgHaHa?rs=1&pid=ImgDetMain" },
+                    { 3, 1, "HP", "30L", "HP Omen", "https://th.bing.com/th/id/OIP.kuD2oV-5Gh6pxBKcC5BltAHaFj?rs=1&pid=ImgDetMain" },
+                    { 4, 1, "ASUS", "G15", "ASUS ROG Strix", "https://th.bing.com/th/id/R.62ff86997b0fa6088ffdd0cc6c50db28?rik=k3MAQ1hNeojL7A&pid=ImgRaw&r=0" },
+                    { 5, 3, "MSI", "Arctic", "MSI Trident 3", "https://www.bhphotovideo.com/images/images2500x2500/msi_mpg_trident_3_12tc_007us_trident_3_i7f_3060_1709605.jpg" },
+                    { 6, 1, "Microsoft", "1TB", "Xbox Series S", "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0" },
+                    { 7, 1, "Microsoft", "1TB", "Xbox Series S", "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0" },
+                    { 8, 1, "Microsoft", "1TB", "Xbox Series S", "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0" },
+                    { 9, 1, "Microsoft", "1TB", "Xbox Series S", "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0" },
+                    { 10, 3, "Microsoft", "1TB", "Xbox Series S", "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0" }
                 });
 
             migrationBuilder.CreateIndex(

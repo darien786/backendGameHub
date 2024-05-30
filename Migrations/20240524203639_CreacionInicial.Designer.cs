@@ -12,8 +12,8 @@ using backendGameHub.Data;
 namespace backendGameHub.Migrations
 {
     [DbContext(typeof(IdentityContext))]
-    [Migration("20240520073556_Inicial")]
-    partial class Inicial
+    [Migration("20240524203639_CreacionInicial")]
+    partial class CreacionInicial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,13 +68,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "9c3ae73c-7445-433f-a722-42a7ed13fdc4",
+                            Id = "ef404a9f-8efb-4de9-9b4f-05705d604bac",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "ff98d73b-0cff-46d6-b8bd-6d770da0d704",
+                            Id = "4a3f9656-b7a3-4d56-bbf3-910c26e0eb92",
                             Name = "Recepcionista",
                             NormalizedName = "RECEPCIONISTA"
                         });
@@ -169,13 +169,13 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "05a26810-c9fe-47be-808b-a8d2091797d5",
-                            RoleId = "9c3ae73c-7445-433f-a722-42a7ed13fdc4"
+                            UserId = "4ecf76a1-704f-46f5-9d58-2ba8ad601845",
+                            RoleId = "ef404a9f-8efb-4de9-9b4f-05705d604bac"
                         },
                         new
                         {
-                            UserId = "011ed245-bcbc-4cd3-91ed-18a21ed3832c",
-                            RoleId = "ff98d73b-0cff-46d6-b8bd-6d770da0d704"
+                            UserId = "df98ea20-9e1f-4bf7-9501-74cd4126a0bc",
+                            RoleId = "4a3f9656-b7a3-4d56-bbf3-910c26e0eb92"
                         });
                 });
 
@@ -288,17 +288,17 @@ namespace backendGameHub.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "05a26810-c9fe-47be-808b-a8d2091797d5",
+                            Id = "4ecf76a1-704f-46f5-9d58-2ba8ad601845",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2fbf290b-188f-4271-a10c-58ff0a1de896",
+                            ConcurrencyStamp = "aa72f48f-7179-4f05-a99c-e047533a0cf1",
                             Email = "zkorpio12",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ZKORPIO12",
                             NormalizedUserName = "ZKORPIO12",
-                            PasswordHash = "AQAAAAIAAYagAAAAEARaM5uDXyA4blo86jkXvp42UkaSa+e5ZfxzEYJKmuNweZK24lKfo0VMeIvQD+3WOA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP3I1AvELGNfAlZwQuZCA978uZQnEkNgIwvV5wzyXMdRu4ptDbHjtxtfllF0o+e7Uw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "ce190139-ef3d-4177-b0e6-47f0fb572361",
+                            SecurityStamp = "c559b1b0-d536-4eab-87db-6cd68b3d0447",
                             TwoFactorEnabled = false,
                             UserName = "zkorpio12",
                             nombre = "Uriel",
@@ -306,17 +306,17 @@ namespace backendGameHub.Migrations
                         },
                         new
                         {
-                            Id = "011ed245-bcbc-4cd3-91ed-18a21ed3832c",
+                            Id = "df98ea20-9e1f-4bf7-9501-74cd4126a0bc",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f2e3073d-9a31-4065-a4a6-32104ec8339a",
+                            ConcurrencyStamp = "142aa57e-e6b0-437f-bba3-1b661028d2e3",
                             Email = "patito123",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "PATITO123",
                             NormalizedUserName = "PATITO123",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKi8TKSJZVReL4ANoLlR2nDi8Bv6415eBSnNeeTtWS51aRqTOxZt/qRal75Ntra1vg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGZFpXXMvfJj0KwRGsb7Cf9Scl0aUALo6ZLskZBorLc1iBAyxxXyFehOjS3lxluWNw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "204fef85-525d-4797-af62-d8001cafb17c",
+                            SecurityStamp = "cb8fc689-9e5d-46b4-bb5e-ff6754f5c13e",
                             TwoFactorEnabled = false,
                             UserName = "patito123",
                             nombre = "Pato Gonzalez Perez",
@@ -381,6 +381,10 @@ namespace backendGameHub.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("url_imagen")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("equipoId");
 
                     b.HasIndex("disponibilidadId");
@@ -394,7 +398,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "DELL",
                             modelo = "50i",
-                            nombre = "PC Gamer Delios"
+                            nombre = "PC Gamer Delios",
+                            url_imagen = "https://th.bing.com/th/id/OIP.pqgvcdzTUqEg1Dn4TB6p9QHaHa?rs=1&pid=ImgDetMain"
                         },
                         new
                         {
@@ -402,7 +407,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "DELL",
                             modelo = "R11",
-                            nombre = "Alienware Aurora"
+                            nombre = "Alienware Aurora",
+                            url_imagen = "https://th.bing.com/th/id/OIP.ybUvOyf2tQLPRjKpvZqhPgHaHa?rs=1&pid=ImgDetMain"
                         },
                         new
                         {
@@ -410,7 +416,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "HP",
                             modelo = "30L",
-                            nombre = "HP Omen"
+                            nombre = "HP Omen",
+                            url_imagen = "https://th.bing.com/th/id/OIP.kuD2oV-5Gh6pxBKcC5BltAHaFj?rs=1&pid=ImgDetMain"
                         },
                         new
                         {
@@ -418,7 +425,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "ASUS",
                             modelo = "G15",
-                            nombre = "ASUS ROG Strix"
+                            nombre = "ASUS ROG Strix",
+                            url_imagen = "https://th.bing.com/th/id/R.62ff86997b0fa6088ffdd0cc6c50db28?rik=k3MAQ1hNeojL7A&pid=ImgRaw&r=0"
                         },
                         new
                         {
@@ -426,7 +434,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 3,
                             marca = "MSI",
                             modelo = "Arctic",
-                            nombre = "MSI Trident 3"
+                            nombre = "MSI Trident 3",
+                            url_imagen = "https://www.bhphotovideo.com/images/images2500x2500/msi_mpg_trident_3_12tc_007us_trident_3_i7f_3060_1709605.jpg"
                         },
                         new
                         {
@@ -434,7 +443,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "Microsoft",
                             modelo = "1TB",
-                            nombre = "Xbox Series S"
+                            nombre = "Xbox Series S",
+                            url_imagen = "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0"
                         },
                         new
                         {
@@ -442,7 +452,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "Microsoft",
                             modelo = "1TB",
-                            nombre = "Xbox Series S"
+                            nombre = "Xbox Series S",
+                            url_imagen = "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0"
                         },
                         new
                         {
@@ -450,7 +461,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "Microsoft",
                             modelo = "1TB",
-                            nombre = "Xbox Series S"
+                            nombre = "Xbox Series S",
+                            url_imagen = "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0"
                         },
                         new
                         {
@@ -458,7 +470,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 1,
                             marca = "Microsoft",
                             modelo = "1TB",
-                            nombre = "Xbox Series S"
+                            nombre = "Xbox Series S",
+                            url_imagen = "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0"
                         },
                         new
                         {
@@ -466,7 +479,8 @@ namespace backendGameHub.Migrations
                             disponibilidadId = 3,
                             marca = "Microsoft",
                             modelo = "1TB",
-                            nombre = "Xbox Series S"
+                            nombre = "Xbox Series S",
+                            url_imagen = "https://th.bing.com/th/id/R.2abcd1e0694b7d96057df2ffc77b5ac9?rik=MtyoTVw3ZbrXYw&pid=ImgRaw&r=0"
                         });
                 });
 

@@ -23,7 +23,7 @@ public class UsuariosController : Controller
     }
 
     //GET: api/empleados
-    //[HttpGet]
+    [HttpGet]
     public async Task<ActionResult<IEnumerable<CustomIdentityUserDTO>>> obtenerUsuariosGET()
     {
         var usuarios = new List<CustomIdentityUserDTO>();
