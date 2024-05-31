@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using backendGameHub.Data;
 using backendGameHub.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Data.Common;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -41,8 +42,6 @@ public async Task<ActionResult<Juego>> GetJuego(int id)
 {
     var juego = await _context.Juegos
         .Include(j => j.estatus)
-        .Include(j => j.categorias)
-            .ThenInclude(c => c.nombre_categoria)
         .AsNoTracking()
         .FirstOrDefaultAsync(j => j.juegoId == id);
 
@@ -55,6 +54,8 @@ public async Task<ActionResult<Juego>> GetJuego(int id)
 }
 
 
+
+
     [HttpPost]
     public async Task<ActionResult<Juego>> PostJuego(Juego juego)
     {
@@ -63,31 +64,29 @@ public async Task<ActionResult<Juego>> GetJuego(int id)
 
         return CreatedAtAction(nameof(GetJuego), new { id = juego.juegoId }, juego);
     }
-
+    
     [HttpPut("{id}")]
-    public async Task<IActionResult> PutJuego(int id, Juego juego)
-    {
-        if (id != juego.juegoId)
-        {
+    [Authorize(Roles = "Administrador, Recepcionista")]
+    public async Task<IActionResult> PutJuego(int id, JuegoDTO juegoDTO){
+        if(id != juegoDTO.juegoId){
             return BadRequest();
         }
 
-        _context.Entry(juego).State = EntityState.Modified;
-
-        try
-        {
-            await _context.SaveChangesAsync();
+        var juego = await _context.Juegos.Include(i => i.estatus).FirstOrDefaultAsync(s => s.juegoId == id);
+        if(juego == null){
+            return NotFound();
         }
-        catch (DbUpdateConcurrencyException)
-        {
-            if (!JuegoExists(id))
-            {
-                return NotFound();
-            }
-            else
-            {
-                throw;
-            }
+        
+        juego.nombre_juego = juegoDTO.nombre_juego;
+        juego.plataforma = juegoDTO.plataforma;
+        juego.descripcion = juegoDTO.descripcion;
+        juego.url_imagen = juegoDTO.url_imagen;
+        juego.estatusId = juegoDTO.estatusId;
+
+        try{
+            await _context.SaveChangesAsync();
+        }catch(DbException ex){
+            Console.WriteLine(ex.Message);
         }
 
         return NoContent();
