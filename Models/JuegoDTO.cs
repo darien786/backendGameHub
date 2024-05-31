@@ -7,7 +7,7 @@ public class JuegoDTO
     public string plataforma { get; set; } = "N/A";
     public string descripcion { get; set; } = "Sin descripcion";
     public string url_imagen { get; set; } = "N/A";
-    public int[]? categorias { get; set; }
-    public string[]? nombres_categorias { get; set; }
+    public int[]? CategoriasJuegos { get; set; }
+    public string[]? nombre_categoria { get; set; }
 
 }
