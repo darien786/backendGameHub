@@ -70,8 +70,18 @@ builder.Services.AddCors(options =>
 //agrega la funcionalidad de controladores
 builder.Services.AddControllers();
 
+// Agrregar la documentacion del API
+builder.Services.AddSwaggerGen();
 //contruye la app web
 var app = builder.Build();
+
+// Si queremos mostrar la documentacion de la API en la raiz 
+if (app.Environment.IsDevelopment()){
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+}
 
 //si queremos mostrar la documentación de la API en laraiz
 
